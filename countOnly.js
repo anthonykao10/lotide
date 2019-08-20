@@ -38,13 +38,12 @@ const countOnly = function(allItems, itemsToCount) {
   return output;
 };
 
+
 // Test toCount
 // let obj = { "Jason": true, "Karima": true, "Fang": true };
 // console.log(toCount('Jason', obj));
 // console.log(toCount('hippo', obj));
 // console.log(toCount('Fang', obj));
-
-
 
 // TEST CASES
 const firstNames = [
