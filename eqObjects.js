@@ -13,7 +13,7 @@ const eqObjects = function(obj1, obj2) {
   for (let key in obj1) {
     // IF val is an array, check for equality with 'eqArrays'
     if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
-      eqArrays(obj1[key], obj2[key]);
+      return eqArrays(obj1[key], obj2[key]);
     }
     // Otherwise, check val as primitives
     if (obj1[key] !== obj2[key]) return false;
@@ -48,4 +48,3 @@ assertEqual(eqObjects(cd, dc), true);
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
 assertEqual(eqObjects(cd2, cd2), true);
-
