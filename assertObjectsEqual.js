@@ -23,9 +23,10 @@ const eqObjects = function(obj1, obj2) {
 
 // IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
+  const inspect = require('util').inspect;
   eqObjects(actual, expected)
-    ? console.log(`\u2714 Assertion Passed: ${JSON.stringify(actual)} === ${JSON.stringify(expected)}`)
-    : console.log(`\u274C Assertion Failed: ${JSON.stringify(actual)} !== ${JSON.stringify(expected)}`);
+    ? console.log(`\u2714 Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`)
+    : console.log(`\u274C Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
 };
 
 // TESTS
@@ -34,7 +35,6 @@ const ba = { b: "2", a: "1" };
 const abc = { a: "1", b: "2", c: "3" };
 
 const cd = { c: "1", d: ["2", 3] };
-const yy = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
 const cd2 = { c: "1", d: ["2", 3, 4] };
 
@@ -45,4 +45,3 @@ console.log('\n===================================\n');
 assertObjectsEqual(cd, dc);
 assertObjectsEqual(dc, dc);
 assertObjectsEqual(cd, cd2); // will fail
-assertObjectsEqual(cd, yy);
