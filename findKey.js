@@ -3,7 +3,6 @@ const findKey = function(obj, cb) {
 
   let keys = Object.keys(obj);
   for (let key of keys) {
-    // console.log(cb(obj[key]));
     if (cb(obj[key])) return key;
   }
   return undefined;
