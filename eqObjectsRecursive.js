@@ -19,14 +19,15 @@ const eqObjects = function(obj1, obj2) {
 
     // IF val is object AND NOT array:
     if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
-      return eqObjects(obj1[key], obj2[key]);
+      if (!eqObjects(obj1[key], obj2[key])) return false;
+
+    // Otherwise, check val as primitives:
+    } else if (obj1[key] !== obj2[key]) {
+      return false;
     }
-    // Otherwise, check val as primitives
-    if (obj1[key] !== obj2[key]) return false;
   }
   return true;
 };
-
 
 
 // TEST CASES:
@@ -40,5 +41,6 @@ const assertEqual = function(actual, expected) {
 
 assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
 assertEqual(eqObjects({ a: { z: 1, x: {y: 5} }, b: 2 }, { a: { z: 1, x: {y: 5} }, b: 2 }), true);
+assertEqual(eqObjects({ a: { z: 1, x: {y: 5} }, b: 3 }, { a: { z: 1, x: {y: 5} }, b: 2 }), false);
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
