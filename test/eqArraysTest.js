@@ -4,7 +4,7 @@ const eqArrays = require('../eqArrays');
 describe('#eqArrays', () => {
 
   it('should return true given equal nested arrays', () => {
-    const result = eqArrays( [[2, 3], [4, [[5], [6, [7, [8, 9]]]]]], [[2, 3], [4, [[5], [6, [7, [8, 9]]]]]]);
+    const result = eqArrays([[2, 3], [4, [[5], [6, [7, [8, 9]]]]]], [[2, 3], [4, [[5], [6, [7, [8, 9]]]]]]);
     assert.strictEqual(result, true);
   });
 
