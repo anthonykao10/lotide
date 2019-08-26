@@ -1,21 +1,27 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const tail = require('../tail');
 
-// Test Case 1: Check the returned array elements
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+describe('#tail', () => {
 
-// Test Case 2: Verify original array doesn't get modified
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words);
-assertEqual(words.length, 3);
+  it('should return every element except the first, when given an array', () => {
+    const result = tail(["Hello", "Lighthouse", "Labs"]);
+    assert.deepEqual(result, ["Lighthouse", "Labs"]);
+  });
 
-// Test Case 3: An array with only one element should yield an empty array for its tail
-const oneElemArrTail = tail([1]);
-assertEqual(oneElemArrTail[0], undefined);
+  it('should not modify the original array', () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3);
+  });
 
-// Test Case 3: An empty array should yield an empty array for its tail
-const emptyArrTail = tail([]);
-assertEqual(emptyArrTail[0], undefined);
+  it('should return an empty array given an array with 1 element', () => {
+    const oneElemArrTail = tail([1]);
+    assert.strictEqual(oneElemArrTail[0], undefined);
+  });
+
+  it('should return an empty array given an empty array', () => {
+    const emptyArrTail = tail([]);
+    assert.strictEqual(emptyArrTail[0], undefined);
+  });
+
+});
