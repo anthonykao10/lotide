@@ -1,7 +1,21 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const eqArrays = require('../eqArrays');
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 1]), false);
-assertEqual(eqArrays([1, 2, 3], [1, 5, 3]), false);
-assertEqual(eqArrays(['hi', 3], ['hi', 3]), true);
+describe('#eqArrays', () => {
+
+  it('should return true given equal nested arrays', () => {
+    const result = eqArrays( [[2, 3], [4, [[5], [6, [7, [8, 9]]]]]], [[2, 3], [4, [[5], [6, [7, [8, 9]]]]]]);
+    assert.strictEqual(result, true);
+  });
+
+  it('should return false given unequal nested arrays', () => {
+    const result = eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]);
+    assert.strictEqual(result, false);
+  });
+
+  it('should return true given empty arrays', () => {
+    const result = eqArrays([], []);
+    assert.strictEqual(result, true);
+  });
+
+});
