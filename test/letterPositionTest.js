@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const letterPositions = require('../letterPosition');
 
-describe('#countOnly', () => {
+describe('#letterPosition', () => {
 
   it('should return position 0, given the first letter in string', () => {
     let simpleStr = 'hello';
@@ -13,9 +13,14 @@ describe('#countOnly', () => {
     assert.deepEqual(letterPositions(simpleStr)['l'], [2, 3]);
   });
 
-  it('should return positions [3, 5, 15, 18], given input \'h\' for string: "lighthouse in the house"', () => {
+  it('should skip spaces and return: [3, 5, 15, 18], given input \'h\' for string: "lighthouse in the house"', () => {
     let test = 'lighthouse in the house';
     assert.deepEqual(letterPositions(test)['h'], [3, 5, 15, 18]);
+  });
+
+  it('should return undefined, given an empty string', () => {
+    let test = '';
+    assert.strictEqual(letterPositions(test), undefined);
   });
 
 });

@@ -1,4 +1,5 @@
 const letterPositions = function(str) {
+  if (!str.length) return undefined;
   let output = {};
   for (let i = 0; i < str.length; i++) {
     // if 'letter' is a key in output...
