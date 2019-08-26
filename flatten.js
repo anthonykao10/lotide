@@ -4,7 +4,6 @@ const flatten = function(arr) {
     if (Array.isArray(elem)) return output.push(...elem);
     output.push(elem);
   });
-  // console.log(output);
   return output;
 };
 

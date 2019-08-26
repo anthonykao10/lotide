@@ -10,5 +10,9 @@ describe('#flatten', () => {
   it('should return [1, 2, 3, 4, [9, 9], 5, 6], given [1, 2, [3, 4, [9, 9]], 5, [6]]', () => {
     assert.deepEqual(flatten([1, 2, [3, 4, [9, 9]], 5, [6]]), [1, 2, 3, 4, [9, 9], 5, 6]);
   });
-  
+
+  it('should return ], given []', () => {
+    assert.deepEqual(flatten([]), []);
+  });
+
 });
