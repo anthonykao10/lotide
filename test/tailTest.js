@@ -3,7 +3,7 @@ const tail = require('../tail');
 
 describe('#tail', () => {
 
-  it('should return every element except the first, when given an array', () => {
+  it('should return ["Lighthouse", "Labs"], given ["Hello", "Lighthouse", "Labs"]', () => {
     const result = tail(["Hello", "Lighthouse", "Labs"]);
     assert.deepEqual(result, ["Lighthouse", "Labs"]);
   });
