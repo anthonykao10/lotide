@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@anthonykao10/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "a simple javascript library inspired by lodash (https://lodash.com/)",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/anthonykao10/lotide.git"
   },
-  "author": "",
+  "author": "anthonykao10",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anthonykao10/lotide/issues"
