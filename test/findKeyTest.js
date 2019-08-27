@@ -3,7 +3,7 @@ const findKey = require('../findKey');
 
 describe('#findKey', () => {
 
-  it('should return the first matching key, given a certain condition (from callback)', () => {
+  it('should return the first matching key which has stars === 2', () => {
     let test = findKey({
       "Blue Hill": { stars: 1 },
       "Akaleri":   { stars: 3 },
