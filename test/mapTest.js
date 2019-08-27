@@ -23,4 +23,11 @@ describe('#map', () => {
     assert.deepEqual(test, [ true, true, false, true, false ]);
   });
 
+  it('should return undefined, given and empty array', () => {
+    const words = [];
+
+    let test = map(words, word => word.length >= 4);
+    assert.strictEqual(test, undefined);
+  });
+
 });
